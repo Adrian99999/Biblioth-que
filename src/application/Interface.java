@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 
 
 public class Interface {
-	private MenuBar mainMenu = null;
+	private MenuBar mainMenuAdrian = null;
 	private Menu menuTrier = null;
 	protected MenuItem menuItemTrierCote = null;
 	protected MenuItem menuItemTrieTitre = null;
