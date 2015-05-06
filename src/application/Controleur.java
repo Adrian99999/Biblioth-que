@@ -26,13 +26,13 @@ private Interface objectInterface;
  */
 private Stage stage;
 /**
- * Un tableau (vecteur) de livres. Il sera rempli au début à partir du contenu du fichier livres.dat depuis data
+ * Un tableau (vecteur) de livres. Il sera rempli au dÃ©but Ã  partir du contenu du fichier livres.dat depuis data
  */
 private Livre [] vecteurLivres=null;
 
 
 /**
- * Méthode qui instancie l'interface, ajoute les écouteurs sur les sous menu, récupère le fichier de livres et affiche l'interface de départ
+ * MÃ©thode qui instancie l'interface, ajoute les Ã©couteurs sur les sous menu, rÃ©cupÃ¨re le fichier de livres et affiche l'interface de dÃ©part
  */
 
 public void start(Stage primaryStage) {
@@ -53,7 +53,7 @@ public void start(Stage primaryStage) {
 }
 
 /**
- * Méthode qui permet de récupérer le fichier, le trier par cote et le placer dans la zone de texte
+ * MÃ©thode qui permet de rÃ©cupÃ©rer le fichier, le trier par cote et le placer dans la zone de texte
  */
 private void restaurerFichier()
 {
@@ -65,7 +65,7 @@ private void restaurerFichier()
 }
 
 /**
- * Méthode qui permet d'ajouter un écouteur d'évenements à chacun des sous menu de la zone de menus
+ * MÃ©thode qui permet d'ajouter un Ã©couteur d'Ã©venements Ã  chacun des sous menu de la zone de menus
  */
 private void ajouterEcouteurs() {
 	objectInterface.menuItemTrierCote.setOnAction(new ActionBoutons());
@@ -77,7 +77,7 @@ private void ajouterEcouteurs() {
 	objectInterface.menuItemTrieTitre.setOnAction(new ActionBoutons());
 }
 /**
- * Classe permettant d'implémenter la méthode pour l'écoute des clics sur les boutons du bas
+ * Classe permettant d'implÃ©menter la mÃ©thode pour l'Ã©coute des clics sur les boutons du bas
  */
 private class ActionBoutons implements EventHandler<ActionEvent>
 {
@@ -87,27 +87,27 @@ private class ActionBoutons implements EventHandler<ActionEvent>
 		{
 			gestionFusionCote();
 		}
-		if(evenement.getSource() == objectInterface.menuItemQuitter)
+		else if(evenement.getSource() == objectInterface.menuItemQuitter)
 		{
 			System.exit(0);
 		}
-		if(evenement.getSource() == objectInterface.menuItemRechCote)
+		else if(evenement.getSource() == objectInterface.menuItemRechCote)
 		{
 			gestionRechercheCote();
 		}
-		if(evenement.getSource() == objectInterface.menuItemRechTitre)
+		else if(evenement.getSource() == objectInterface.menuItemRechTitre)
 		{
 			gestionRechercheTitre();
 		}
-		if(evenement.getSource() == objectInterface.menuItemTrieNbPage)
+		else if(evenement.getSource() == objectInterface.menuItemTrieNbPage)
 		{
 			gestionTrierPages();
 		}
-		if(evenement.getSource() == objectInterface.menuItemTrierCote)
+		else if(evenement.getSource() == objectInterface.menuItemTrierCote)
 		{
 			gestionTrierCote();
 		}
-		if(evenement.getSource() == objectInterface.menuItemTrieTitre)
+		else if(evenement.getSource() == objectInterface.menuItemTrieTitre)
 		{
 			gestionTrierTitre();
 		}
@@ -116,15 +116,15 @@ private class ActionBoutons implements EventHandler<ActionEvent>
 	/**
 	 * Effectue la gestion de la fusion. 
 	 * 
-	 * Elle récupère le contenu du fichier FICHIER_FUSION (Appel de la méthode recupererFichier) et trie par cote le tableau résultant de cette récupération de fichier s'il n'est pas à "null". 
+	 * Elle rÃ©cupÃ¨re le contenu du fichier FICHIER_FUSION (Appel de la mÃ©thode recupererFichier) et trie par cote le tableau rÃ©sultant de cette rÃ©cupÃ©ration de fichier s'il n'est pas Ã  "null". 
 	 * 
-	 * Elle trie aussi par cote le tableau courant "tabDeLivres" s'il n'est pas  à "null" et fusionne ces 2 tableaux triés.
+	 * Elle trie aussi par cote le tableau courant "tabDeLivres" s'il n'est pas  Ã  "null" et fusionne ces 2 tableaux triÃ©s.
 	 * 
-	 * Le résultat de la fusion est remis dans le tableau courant "tabDeLivres".
+	 * Le rÃ©sultat de la fusion est remis dans le tableau courant "tabDeLivres".
 	 * 
-	 * Attention, il faut prévoir les cas où un des 2 tableaux (ou les 2) soit null.
+	 * Attention, il faut prÃ©voir les cas oÃ¹ un des 2 tableaux (ou les 2) soit null.
 	 * 
-	 * Après la fusion, elle réaffiche correctement les informations du tableau  fusionné dans le TextArea et désactive le sous menu "Fusion".
+	 * AprÃ¨s la fusion, elle rÃ©affiche correctement les informations du tableau  fusionnÃ© dans le TextArea et dÃ©sactive le sous menu "Fusion".
 	 */
 
 	private void gestionFusionCote() {
@@ -160,13 +160,13 @@ private class ActionBoutons implements EventHandler<ActionEvent>
 
 /**
  * Effectue la gestion de la recherche de titres de livres.  
- * Elle demande un titre. Assurez-vous que la saisie du titre n’a pas été
- * annulée et que le titre filtré ait au moins un caractère. (Saisie avec
+ * Elle demande un titre. Assurez-vous que la saisie du titre nâ€™a pas Ã©tÃ©
+ * annulÃ©e et que le titre filtrÃ© ait au moins un caractÃ¨re. (Saisie avec
  * feedback).
  * 
- * Effectue ensuite la recherche et affiche dans des boîtes de message le ou les
- * livres dont le titre <b>commence</b> par la chaîne saisie ou un message
- * approprié si aucun livre n'existe avec ce titre.
+ * Effectue ensuite la recherche et affiche dans des boÃ®tes de message le ou les
+ * livres dont le titre <b>commence</b> par la chaÃ®ne saisie ou un message
+ * appropriÃ© si aucun livre n'existe avec ce titre.
  */
 
 public void gestionRechercheTitre() {
@@ -178,35 +178,35 @@ public void gestionRechercheTitre() {
 	TextInputDialog dialog = new TextInputDialog();
 	dialog.setTitle("Recherche par titre");
 	dialog.setHeaderText(null);
-	dialog.setContentText("Quelle est le titre recherché ?");
+	dialog.setContentText("Quelle est le titre recherchÃ© ?");
 	
 	titreSaisie = dialog.showAndWait();
-	//Assurez-vous que la saisie du titre n’a pas été  annulée et que le titre filtré ait au moins un caractère. (Saisie avec  feedback).
+	//Assurez-vous que la saisie du titre nâ€™a pas Ã©tÃ©  annulÃ©e et que le titre filtrÃ© ait au moins un caractÃ¨re. (Saisie avec  feedback).
 	
 	while(titreSaisie.isPresent() && (!Livre.validerTitre(Livre.filtrerTitre(titreSaisie.get()))))
 	{
 		dialog.setHeaderText("Attention le titre n'est pas valide.");
-		dialog.setContentText("Le titre doit avoir min 2 et max 20 lettres. \n Quelle est le titre recherché ?");
+		dialog.setContentText("Le titre doit avoir min 2 et max 20 lettres. \n Quelle est le titre recherchÃ© ?");
 		titreSaisie= dialog.showAndWait();
 	}
 	
 	if(titreSaisie.isPresent())
 	{
-		//cette méthode fait toUpperCase le titre saise
+		//cette mÃ©thode fait toUpperCase le titre saise
 		titreRecherche = Livre.filtrerTitre(titreSaisie.get());
 		vecteurOccuranceLivre = GestionLivres.rechercherTitre(titreRecherche, vecteurLivres);
 		
-		//verification du vecteur returné
+		//verification du vecteur returnÃ©
 		if(vecteurOccuranceLivre == null)
 		{
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Titre inexistant.");
-			alert.setContentText("Le titre recherché n'existe pas.");
+			alert.setContentText("Le titre recherchÃ© n'existe pas.");
 		}
 		else
 		{
 			Alert alert = new Alert (AlertType.INFORMATION);
-			alert.setTitle("Livre trouvé");
+			alert.setTitle("Livre trouvÃ©");
 			alert.setHeaderText(null);
 			for (int i = 0; i<vecteurOccuranceLivre.length; i ++)
 			{
@@ -228,14 +228,14 @@ public void gestionRechercheCote() {
 	TextInputDialog dialog = new TextInputDialog();
 	dialog.setTitle("Recherche par cote");
 	dialog.setHeaderText(null);
-	dialog.setContentText("Quelle est la cote recherchée?");
+	dialog.setContentText("Quelle est la cote recherchÃ©e?");
 	
 	coteSaisie = dialog.showAndWait();
 	//tretemont de saisie
 	while (coteSaisie.isPresent() && (!Livre.validerCote(Livre.filtrerCote(coteSaisie.get())))) 
 	{
 		dialog.setHeaderText("Attention la cote n'est pas valide.");
-		dialog.setContentText("Elle doit avoir 2 lettres et 3 chiffres \n Quelle est la cote recherchée?");
+		dialog.setContentText("Elle doit avoir 2 lettres et 3 chiffres \n Quelle est la cote recherchÃ©e?");
 		coteSaisie = dialog.showAndWait();
 	}
 	
@@ -250,14 +250,14 @@ public void gestionRechercheCote() {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Cote inexistant");
 			//alert.setHeaderText();
-			alert.setContentText("La cote entrée n'existe pas.");
+			alert.setContentText("La cote entrÃ©e n'existe pas.");
 			alert.getDialogPane().setStyle("-fx-text-background-color: red;");
 		}
-		//si la cote a été trouvée, les renseignements du livre sont affichés
+		//si la cote a Ã©tÃ© trouvÃ©e, les renseignements du livre sont affichÃ©s
 		else 
 		{
 			Alert alert = new Alert (AlertType.INFORMATION);
-			alert.setTitle("Livre trouvé!");
+			alert.setTitle("Livre trouvÃ©!");
 			alert.setHeaderText(null);
 			alert.setContentText(vecteurLivres[coteTrouvee].enChaineAbregee());
 			alert.show();
@@ -276,7 +276,7 @@ public void gestionTrierTitre() {
 }
 
 /**
- * Effectue les opérations nécessaires pour que le tableau de livres soit trié par cote (trierParCote) et réaffiche correctement la liste de livres
+ * Effectue les opÃ©rations nÃ©cessaires pour que le tableau de livres soit triÃ© par cote (trierParCote) et rÃ©affiche correctement la liste de livres
  * dans le TextArea.
  */
 public void gestionTrierCote() {
